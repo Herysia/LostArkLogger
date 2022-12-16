@@ -28,6 +28,7 @@ namespace LostArkLogger
         PKTStatChangeOriginNotify = 36350,
         PKTStatusEffectAddNotify = 58877,
         PKTStatusEffectRemoveNotify = 1763,
+        PKTStatusEffectSyncDataNotify = 47586,
         PKTTriggerBossBattleStatus = 27798,
         PKTTriggerFinishNotify = 1841,
         PKTTriggerStartNotify = 42482,
