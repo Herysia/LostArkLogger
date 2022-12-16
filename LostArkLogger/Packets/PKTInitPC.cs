@@ -20,7 +20,9 @@ namespace LostArkLogger
             Unk2 = reader.ReadInt32();
             statusEffectDatas = new StatusEffectDatas(reader);
             Unk4 = reader.ReadInt32();
-            Unk5 = reader.ReadBytes(35);
+            reader.Skip(32);
+            Level = reader.ReadUInt16();
+            reader.Skip(1);
             Unk6 = reader.ReadInt32();
             struct_214 = new Struct_214(reader);
             Unk8 = reader.ReadByte();
@@ -39,7 +41,7 @@ namespace LostArkLogger
             Unk21 = reader.ReadByte();
             Unk22 = reader.ReadBytes(112);
             Unk23 = reader.ReadInt64();
-            Unk24 = reader.ReadInt64();
+            CharacterId = reader.ReadUInt64();
             Unk25 = reader.ReadInt64();
             Unk26 = reader.ReadByte();
             if(Unk26 == 1)
@@ -72,9 +74,7 @@ namespace LostArkLogger
             Unk50 = reader.ReadInt16();
             Unk51 = reader.ReadByte();
             struct_346 = new Struct_346(reader);
-            reader.Skip(24);
-            Level = reader.ReadUInt16();
-            reader.Skip(-1);
+            Unk53 = reader.ReadBytes(25);
             struct_95 = new Struct_95(reader);
             Unk55 = reader.ReadByte();
             PlayerId = reader.ReadUInt64();
@@ -85,7 +85,7 @@ namespace LostArkLogger
         public int Unk2 { get; }
         public StatusEffectDatas statusEffectDatas { get; } = new StatusEffectDatas();
         public int Unk4 { get; }
-        public byte[] Unk5 { get; }
+        public ushort Level { get; }
         public int Unk6 { get; }
         public Struct_214 struct_214 { get; } = new Struct_214();
         public byte Unk8 { get; }
@@ -104,7 +104,7 @@ namespace LostArkLogger
         public byte Unk21 { get; }
         public byte[] Unk22 { get; }
         public long Unk23 { get; }
-        public long Unk24 { get; }
+        public ulong CharacterId { get; }
         public long Unk25 { get; }
         public byte Unk26 { get; }
         public int Unk26_0 { get; }
@@ -134,7 +134,7 @@ namespace LostArkLogger
         public short Unk50 { get; }
         public byte Unk51 { get; }
         public Struct_346 struct_346 { get; } = new Struct_346();
-        public ushort Level { get; }
+        public byte[] Unk53 { get; }
         public Struct_95 struct_95 { get; } = new Struct_95();
         public byte Unk55 { get; }
         public ulong PlayerId { get; }
